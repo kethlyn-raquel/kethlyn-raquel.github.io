@@ -23,27 +23,13 @@
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-    }
-
-    header p {
-      margin-top: 10px;
-      color: #666;
-    }
+    header h1 { margin: 0; font-size: 3rem; }
+    header p { margin-top: 10px; color: #666; }
 
     nav { margin-top: 20px; }
-
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #111;
-    }
+    nav a { margin: 0 12px; text-decoration: none; font-weight: 600; color: #111; }
 
     .buttons { margin-top: 30px; }
-
     .buttons a {
       padding: 14px 26px;
       border-radius: 40px;
@@ -53,29 +39,14 @@
       text-decoration: none;
       color: #fff;
     }
-
     .whatsapp { background: #25d366; }
     .instagram { background: #e1306c; }
 
-    section {
-      padding: 70px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+    section { padding: 70px 20px; max-width: 1200px; margin: auto; }
 
-    h2 {
-      text-align: center;
-      font-size: 2.3rem;
-      margin-bottom: 50px;
-    }
-
+    h2 { text-align: center; font-size: 2.3rem; margin-bottom: 50px; }
     .category { margin-bottom: 70px; }
-
-    .category h3 {
-      font-size: 1.6rem;
-      margin-bottom: 25px;
-    }
-
+    .category h3 { font-size: 1.6rem; margin-bottom: 25px; }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -93,42 +64,14 @@
       transition: all 0.6s ease;
     }
 
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .card.show { opacity: 1; transform: translateY(0); }
     .card:hover { transform: translateY(-8px); }
+    .card img { width: 100%; height: 220px; object-fit: cover; }
+    .info { padding: 22px; text-align: center; }
+    .price { color: #25d366; font-weight: bold; margin: 8px 0; }
 
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .info {
-      padding: 22px;
-      text-align: center;
-    }
-
-    .price {
-      color: #25d366;
-      font-weight: bold;
-      margin: 8px 0;
-    }
-
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 35px 15px;
-    }
-
-    footer a {
-      color: #25d366;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    footer { background: #111; color: #fff; text-align: center; padding: 35px 15px; }
+    footer a { color: #25d366; text-decoration: none; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -164,6 +107,22 @@
         </div>
       </div>
 
+      <div class="card" onclick="contato('Foto Polaroid')">
+        <img src="polaroid.jpg">
+        <div class="info">
+          <h4>Foto Polaroid</h4>
+          <div class="price">R$ 2,50</div>
+        </div>
+      </div>
+
+      <div class="card" onclick="contato('Azulejo Personalizado')">
+        <img src="azulejo.jpg">
+        <div class="info">
+          <h4>Azulejo Personalizado</h4>
+          <div class="price">R$ 30,00</div>
+        </div>
+      </div>
+
       <div class="card" onclick="contato('Cartão de Visita')">
         <img src="cartao.jpg">
         <div class="info">
@@ -172,11 +131,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="contato('Etiqueta Escolar')">
-        <img src="etiqueta.jpg">
+      <div class="card" onclick="contato('Widerbanner')">
+        <img src="widerbanner.jpg">
         <div class="info">
-          <h4>Etiqueta Escolar</h4>
-          <div class="price">Pacote R$ 15,00</div>
+          <h4>Widerbanner</h4>
+          <div class="price">R$ 290,00</div>
         </div>
       </div>
 
@@ -188,6 +147,14 @@
         </div>
       </div>
 
+      <div class="card" onclick="contato('Etiqueta Escolar')">
+        <img src="etiqueta.jpg">
+        <div class="info">
+          <h4>Etiqueta Escolar</h4>
+          <div class="price">Pacote R$ 15,00</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -196,7 +163,7 @@
     <h3>🎁 Personalizados</h3>
     <div class="products">
 
-      <div class="card" onclick="contato('Caneca Personalizada')">
+      <div class="card" onclick="contato('Caneca')">
         <img src="caneca.jpg">
         <div class="info">
           <h4>Caneca</h4>
@@ -217,14 +184,6 @@
         <div class="info">
           <h4>Chaveiro</h4>
           <div class="price">R$ 3,50</div>
-        </div>
-      </div>
-
-      <div class="card" onclick="contato('Azulejo Personalizado')">
-        <img src="azulejo.jpg">
-        <div class="info">
-          <h4>Azulejo Personalizado</h4>
-          <div class="price">R$ 30,00</div>
         </div>
       </div>
 
