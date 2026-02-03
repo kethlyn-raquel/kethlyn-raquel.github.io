@@ -43,10 +43,10 @@
     .instagram { background: #e1306c; }
 
     section { padding: 70px 20px; max-width: 1200px; margin: auto; }
-
     h2 { text-align: center; font-size: 2.3rem; margin-bottom: 50px; }
     .category { margin-bottom: 70px; }
     .category h3 { font-size: 1.6rem; margin-bottom: 25px; }
+
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -66,12 +66,52 @@
 
     .card.show { opacity: 1; transform: translateY(0); }
     .card:hover { transform: translateY(-8px); }
-    .card img { width: 100%; height: 220px; object-fit: cover; }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background: #f6f6f6;
+    }
+
     .info { padding: 22px; text-align: center; }
     .price { color: #25d366; font-weight: bold; margin: 8px 0; }
 
     footer { background: #111; color: #fff; text-align: center; padding: 35px 15px; }
     footer a { color: #25d366; text-decoration: none; font-weight: bold; }
+
+    /* Botão flutuante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .card img { height: 200px; }
+    }
+
   </style>
 </head>
 <body>
@@ -101,58 +141,37 @@
 
       <div class="card" onclick="contato('Banner')">
         <img src="banner.jpg">
-        <div class="info">
-          <h4>Banner</h4>
-          <div class="price">A partir de R$ 80,00</div>
-        </div>
+        <div class="info"><h4>Banner</h4><div class="price">A partir de R$ 80,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Foto Polaroid')">
         <img src="polaroid.jpg">
-        <div class="info">
-          <h4>Foto Polaroid</h4>
-          <div class="price">R$ 2,50</div>
-        </div>
+        <div class="info"><h4>Foto Polaroid</h4><div class="price">R$ 2,50</div></div>
       </div>
 
       <div class="card" onclick="contato('Azulejo Personalizado')">
         <img src="azulejo.jpg">
-        <div class="info">
-          <h4>Azulejo Personalizado</h4>
-          <div class="price">R$ 30,00</div>
-        </div>
+        <div class="info"><h4>Azulejo Personalizado</h4><div class="price">R$ 30,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Cartão de Visita')">
         <img src="cartao.jpg">
-        <div class="info">
-          <h4>Cartão de Visita</h4>
-          <div class="price">1000 un. – R$ 150,00</div>
-        </div>
+        <div class="info"><h4>Cartão de Visita</h4><div class="price">1000 un. – R$ 150,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Widerbanner')">
         <img src="widerbanner.jpg">
-        <div class="info">
-          <h4>Widerbanner</h4>
-          <div class="price">R$ 290,00</div>
-        </div>
+        <div class="info"><h4>Widerbanner</h4><div class="price">R$ 290,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Mini Calendário')">
         <img src="calendario.jpg">
-        <div class="info">
-          <h4>Mini Calendário</h4>
-          <div class="price">R$ 3,50</div>
-        </div>
+        <div class="info"><h4>Mini Calendário</h4><div class="price">R$ 3,50</div></div>
       </div>
 
       <div class="card" onclick="contato('Etiqueta Escolar')">
         <img src="etiqueta.jpg">
-        <div class="info">
-          <h4>Etiqueta Escolar</h4>
-          <div class="price">Pacote R$ 15,00</div>
-        </div>
+        <div class="info"><h4>Etiqueta Escolar</h4><div class="price">Pacote R$ 15,00</div></div>
       </div>
 
     </div>
@@ -165,34 +184,22 @@
 
       <div class="card" onclick="contato('Caneca')">
         <img src="caneca.jpg">
-        <div class="info">
-          <h4>Caneca</h4>
-          <div class="price">R$ 35,00</div>
-        </div>
+        <div class="info"><h4>Caneca</h4><div class="price">R$ 35,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Caneca de Chopp Personalizada')">
         <img src="chopp.jpg">
-        <div class="info">
-          <h4>Caneca de Chopp</h4>
-          <div class="price">R$ 4,50 / un.</div>
-        </div>
+        <div class="info"><h4>Caneca de Chopp</h4><div class="price">R$ 4,50 / un.</div></div>
       </div>
 
       <div class="card" onclick="contato('Chaveiro')">
         <img src="chaveiro.jpg">
-        <div class="info">
-          <h4>Chaveiro</h4>
-          <div class="price">R$ 3,50</div>
-        </div>
+        <div class="info"><h4>Chaveiro</h4><div class="price">R$ 3,50</div></div>
       </div>
 
       <div class="card" onclick="contato('Caixinha Personalizada')">
         <img src="caixinha.jpg">
-        <div class="info">
-          <h4>Caixinha Personalizada</h4>
-          <div class="price">R$ 25,00</div>
-        </div>
+        <div class="info"><h4>Caixinha Personalizada</h4><div class="price">R$ 25,00</div></div>
       </div>
 
     </div>
@@ -205,26 +212,17 @@
 
       <div class="card" onclick="contato('Banner de 15 Anos')">
         <img src="15anos.jpg">
-        <div class="info">
-          <h4>Banner de 15 Anos</h4>
-          <div class="price">R$ 150,00</div>
-        </div>
+        <div class="info"><h4>Banner de 15 Anos</h4><div class="price">R$ 150,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Buquê de Borboleta com LED')">
         <img src="buque-led.jpg">
-        <div class="info">
-          <h4>Buquê com LED</h4>
-          <div class="price">R$ 80,00</div>
-        </div>
+        <div class="info"><h4>Buquê com LED</h4><div class="price">R$ 80,00</div></div>
       </div>
 
       <div class="card" onclick="contato('Buquê de Borboleta sem LED')">
         <img src="buque.jpg">
-        <div class="info">
-          <h4>Buquê sem LED</h4>
-          <div class="price">R$ 70,00</div>
-        </div>
+        <div class="info"><h4>Buquê sem LED</h4><div class="price">R$ 70,00</div></div>
       </div>
 
     </div>
@@ -236,7 +234,13 @@
   <p>© 2026 Ketty Designer • <a href="https://wa.me/5555999712009" target="_blank">Fale comigo</a></p>
 </footer>
 
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/5555999712009" target="_blank" class="whatsapp-float">
+  <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
+</a>
+
 <script>
+  // Animação de cards
   const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -245,6 +249,7 @@
   }, { threshold: 0.2 });
   cards.forEach(card => observer.observe(card));
 
+  // Função WhatsApp personalizada
   function contato(produto) {
     const msg = encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
     window.open(`https://wa.me/5555999712009?text=${msg}`, '_blank');
