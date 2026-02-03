@@ -1,29 +1,179 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Ketty Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      background: #0f0f0f;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
     }
-    h1 {
-      font-size: 2.5rem;
+
+    header {
+      background: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    p {
-      opacity: 0.8;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #111;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 30px;
+      margin: 5px;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .instagram {
+      background: #e1306c;
+      color: #fff;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #111;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card .info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .price {
+      color: #25d366;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer a {
+      color: #25d366;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+
+<header>
   <h1>Ketty Designer ✨</h1>
-  <p>Site criado com GitHub Pages</p>
+  <p>Design criativo • Artes digitais • Identidade visual</p>
+
+  <div class="buttons">
+    <a class="whatsapp" href="https://wa.me/5555999712009" target="_blank">WhatsApp</a>
+    <a class="instagram" href="https://www.instagram.com/_ketyrf7/" target="_blank">Instagram</a>
+  </div>
+</header>
+
+<section>
+  <h2>Meus Produtos</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="produto1.jpg" alt="Produto 1">
+      <div class="info">
+        <h3>Arte para Instagram</h3>
+        <div class="price">R$ 30,00</div>
+        <p>Posts criativos e personalizados</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="produto2.jpg" alt="Produto 2">
+      <div class="info">
+        <h3>Logotipo</h3>
+        <div class="price">R$ 120,00</div>
+        <p>Logo profissional e exclusivo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="produto3.jpg" alt="Produto 3">
+      <div class="info">
+        <h3>Cartão Digital</h3>
+        <div class="price">R$ 50,00</div>
+        <p>Divulgação moderna e elegante</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Ketty Designer • Fale comigo no <a href="https://wa.me/5555999712009" target="_blank">WhatsApp</a></p>
+</footer>
+
 </body>
 </html>
+
