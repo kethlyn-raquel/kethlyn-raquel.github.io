@@ -1,41 +1,46 @@
-// ================= BOTÃO VER PRODUTOS =================
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("btn-ver-produtos");
-  const produtos = document.getElementById("produtos");
+// ================= CONFIG =================
+const lista = document.getElementById("lista-produtos");
+const btnVerProdutos = document.getElementById("btn-ver-produtos");
+const hero = document.getElementById("hero");
 
-  // Segurança: se não achar elementos, não quebra
-  if (!btn || !produtos) return;
-
-  btn.addEventListener("click", () => {
-    produtos.style.display = "block";
-
-    produtos.scrollIntoView({
+// ================= HERO → PRODUTOS =================
+if (btnVerProdutos) {
+  btnVerProdutos.addEventListener("click", () => {
+    document.getElementById("produtos").scrollIntoView({
       behavior: "smooth"
     });
   });
-});
+}
 
-// ================= CARREGAR PRODUTOS DO JSON =================
-const lista = document.getElementById("lista-produtos");
-
+// ================= CARREGAR PRODUTOS =================
 fetch("data/produtos.json")
   .then(res => res.json())
   .then(data => {
     criarCategoria("📄 Papelaria & Impressos", data.papelaria);
     criarCategoria("🎁 Personalizados", data.personalizados);
     criarCategoria("🎉 Eventos", data.eventos);
+    ativarAnimacoes();
+  })
+  .catch(err => {
+    console.error("Erro ao carregar produtos:", err);
   });
 
+// ================= CRIAR CATEGORIA =================
 function criarCategoria(titulo, produtos) {
   const section = document.createElement("div");
   section.className = "category";
 
-  section.innerHTML = `<h3>${titulo}</h3><div class="products"></div>`;
+  section.innerHTML = `
+    <h3>${titulo}</h3>
+    <div class="products"></div>
+  `;
+
   const container = section.querySelector(".products");
 
   produtos.forEach(p => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card hidden";
+    card.onclick = () => contato(p.nome);
 
     card.innerHTML = `
       <img src="${p.imagem}" alt="${p.nome}">
@@ -44,8 +49,6 @@ function criarCategoria(titulo, produtos) {
         <div class="price">${p.preco}</div>
       </div>
     `;
-
-    card.addEventListener("click", () => contato(p.nome));
 
     container.appendChild(card);
   });
@@ -57,4 +60,23 @@ function criarCategoria(titulo, produtos) {
 function contato(produto) {
   const msg = encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
   window.open(`https://wa.me/5555999712009?text=${msg}`, "_blank");
+}
+
+// ================= ANIMAÇÕES =================
+function ativarAnimacoes() {
+  const elementos = document.querySelectorAll(".card, .testimonial-card");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  elementos.forEach(el => observer.observe(el));
 }
