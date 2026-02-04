@@ -3,78 +3,90 @@
     {
       "nome": "Banner",
       "preco": "A partir de R$ 80,00",
-      "imagem": "img/produtos/banner.jpg"
+      "imagem": "img/produtos/banner.jpg",
+      "estoque": 5
     },
     {
       "nome": "Foto Polaroid",
       "preco": "R$ 2,50",
-      "imagem": "img/produtos/polaroid.jpg"
+      "imagem": "img/produtos/polaroid.jpg",
+      "estoque": 20
     },
     {
       "nome": "Azulejo Personalizado",
       "preco": "R$ 30,00",
-      "imagem": "img/produtos/azulejo.jpg"
+      "imagem": "img/produtos/azulejo.jpg",
+      "estoque": 10
     },
     {
       "nome": "Cartão de Visita",
       "preco": "1000 unidades por R$ 150,00",
-      "imagem": "img/produtos/cartao.jpg"
+      "imagem": "img/produtos/cartao.jpg",
+      "estoque": 0
     },
     {
       "nome": "Wind banner",
       "preco": "R$ 290,00",
-      "imagem": "img/produtos/widerbanner.jpg"
+      "imagem": "img/produtos/widerbanner.jpg",
+      "estoque": 3
     },
     {
       "nome": "Mini Calendário",
       "preco": "R$ 3,50",
-      "imagem": "img/produtos/calendario.jpg"
+      "imagem": "img/produtos/calendario.jpg",
+      "estoque": 15
     },
     {
       "nome": "Etiqueta Escolar",
       "preco": "Pacote R$ 15,00",
-      "imagem": "img/produtos/etiqueta.jpg"
+      "imagem": "img/produtos/etiqueta.jpg",
+      "estoque": 7
     }
   ],
-
   "personalizados": [
     {
       "nome": "Caneca Personalizada",
       "preco": "R$ 35,00",
-      "imagem": "img/produtos/caneca.jpg"
+      "imagem": "img/produtos/caneca.jpg",
+      "estoque": 8
     },
     {
       "nome": "Caneca de Chopp Personalizada",
       "preco": "R$ 4,50 por unidade",
-      "imagem": "img/produtos/chopp.jpg"
+      "imagem": "img/produtos/chopp.jpg",
+      "estoque": 12
     },
     {
       "nome": "Chaveiro",
       "preco": "R$ 3,50",
-      "imagem": "img/produtos/chaveiro.jpg"
+      "imagem": "img/produtos/chaveiro.jpg",
+      "estoque": 0
     },
     {
       "nome": "Caixinha Personalizada",
       "preco": "R$ 25,00",
-      "imagem": "img/produtos/caixinha.jpg"
+      "imagem": "img/produtos/caixinha.jpg",
+      "estoque": 6
     }
   ],
-
   "eventos": [
     {
       "nome": "Banner de 15 Anos",
       "preco": "R$ 150,00",
-      "imagem": "img/produtos/15anos.jpg"
+      "imagem": "img/produtos/15anos.jpg",
+      "estoque": 2
     },
     {
       "nome": "Buquê de Borboleta com LED",
       "preco": "R$ 80,00",
-      "imagem": "img/produtos/buque-led.jpg"
+      "imagem": "img/produtos/buque-led.jpg",
+      "estoque": 5
     },
     {
       "nome": "Buquê de Borboleta sem LED",
       "preco": "R$ 70,00",
-      "imagem": "img/produtos/buque.jpg"
+      "imagem": "img/produtos/buque.jpg",
+      "estoque": 0
     }
   ]
 }
