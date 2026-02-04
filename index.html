@@ -17,15 +17,60 @@
       color: #333;
     }
 
-    header {
-      background: linear-gradient(135deg, #ffffff, #f1f1f1);
-      padding: 70px 20px;
+    /* ================= HERO / TELA DE BOAS-VINDAS ================= */
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url('fundo-hero.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      position: relative;
+      color: #fff;
+    }
+    #hero img {
+      max-width: 250px;
+      width: 60%;
+      height: auto;
+      animation: fadeIn 2s ease forwards;
+    }
+    #hero h1 {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+      opacity: 0;
+      animation: fadeIn 2s ease 0.5s forwards;
+    }
+    #hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      line-height: 1.5;
+      opacity: 0;
+      animation: fadeIn 2s ease 1s forwards;
+    }
+    #hero a {
+      margin-top: 30px;
+      padding: 15px 30px;
+      border-radius: 40px;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeIn 2s ease 1.5s forwards;
     }
 
+    @keyframes fadeIn { 0%{opacity:0;} 100%{opacity:1;} }
+
+    /* ================= HEADER ================= */
+    header {
+      background: linear-gradient(135deg, #ffffff, #f1f1f1);
+      padding: 50px 20px;
+      text-align: center;
+    }
     header h1 { margin: 0; font-size: 3rem; }
     header p { margin-top: 10px; color: #666; }
-
     nav { margin-top: 20px; }
     nav a { margin: 0 12px; text-decoration: none; font-weight: 600; color: #111; }
 
@@ -42,6 +87,7 @@
     .whatsapp { background: #25d366; }
     .instagram { background: #e1306c; }
 
+    /* ================= PRODUTOS ================= */
     section { padding: 70px 20px; max-width: 1200px; margin: auto; }
     h2 { text-align: center; font-size: 2.3rem; margin-bottom: 50px; }
     .category { margin-bottom: 70px; }
@@ -63,31 +109,46 @@
       transform: translateY(40px);
       transition: all 0.6s ease;
     }
-
     .card.show { opacity: 1; transform: translateY(0); }
     .card:hover { transform: translateY(-8px); }
-
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      background: #f6f6f6;
-    }
-
+    .card img { width: 100%; height: 220px; object-fit: contain; background: #f6f6f6; }
     .info { padding: 22px; text-align: center; }
     .price { color: #25d366; font-weight: bold; margin: 8px 0; }
 
-    /* Localização */
-    .location {
-      text-align: center;
-      margin: 70px auto;
+    /* ================= DEPOIMENTOS ================= */
+    #depoimentos {
+      padding: 70px 20px;
+      background: #f2f2f2;
     }
+    .testimonial-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .testimonial-card h4 { text-align:center; margin-bottom:10px; }
+    .testimonial-card p { text-align:center; color:#555; }
+    .testimonial-card.show { opacity: 1; transform: translateY(0); }
+
+    /* ================= LOCALIZAÇÃO ================= */
+    .location { text-align: center; margin: 70px auto; }
     .location p { font-size: 1.2rem; margin-bottom: 20px; }
 
+    /* ================= FOOTER ================= */
     footer { background: #111; color: #fff; text-align: center; padding: 35px 15px; }
     footer a { color: #25d366; text-decoration: none; font-weight: bold; }
 
-    /* Botão flutuante WhatsApp */
+    /* ================= BOTÃO FLUTUANTE ================= */
     .whatsapp-float {
       position: fixed;
       bottom: 25px;
@@ -103,27 +164,30 @@
       z-index: 999;
       animation: pulse 2s infinite;
     }
+    .whatsapp-float img { width: 32px; height: 32px; }
 
-    .whatsapp-float img {
-      width: 32px;
-      height: 32px;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
     @media (max-width: 768px) {
       .card img { height: 200px; }
       iframe { height: 250px; }
+      #hero h1 { font-size:2rem; }
+      #hero p { font-size:1rem; max-width:90%; }
     }
 
   </style>
 </head>
 <body>
 
+<!-- ================= HERO / BOAS-VINDAS ================= -->
+<section id="hero">
+  <img src="logo.png" alt="Ketty Designer">
+  <h1>Bem-vindo à minha lojinha online!</h1>
+  <p>Aqui você encontrará diversos produtos personalizados, papelaria criativa, itens para eventos e muito mais, tudo feito com carinho e dedicação.</p>
+  <a href="#produtos">Ver Produtos</a>
+</section>
+
+<!-- ================= HEADER ================= -->
 <header>
   <h1>Ketty Designer ✨</h1>
   <p>Personalizados • Gráfica • Design Criativo</p>
@@ -139,7 +203,8 @@
   </div>
 </header>
 
-<section>
+<!-- ================= PRODUTOS ================= -->
+<section id="produtos">
   <h2>Meus Produtos</h2>
 
   <!-- PAPELARIA -->
@@ -177,24 +242,43 @@
       <div class="card" onclick="contato('Buquê de Borboleta sem LED')"><img src="buque.jpg"><div class="info"><h4>Buquê sem LED</h4><div class="price">R$ 70,00</div></div></div>
     </div>
   </div>
-
-  <!-- LOCALIZAÇÃO -->
-  <div class="location">
-    <h2>📍 Localização</h2>
-    <p>Rua Sião, 225 Casa B, Bairro Santa Carmem, Quarai - RS</p>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.106461970633!2d-56.45246082558081!3d-30.369271546413685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ab09e5a61c1e95%3A0xd40b7a63eb550844!2sASD%20-%20Propaganda%2C%20Publicidade%20e%20Eventos!5e1!3m2!1spt-BR!2sbr!4v1770147599696!5m2!1spt-BR!2sbr"
-      width="100%"
-      height="350"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
 </section>
 
+<!-- ================= DEPOIMENTOS ================= -->
+<section id="depoimentos">
+  <h2>🗨️ Depoimentos</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <h4>Maria S.</h4>
+      <p>"A Ketty fez um trabalho incrível no meu banner! Super criativa e rápida."</p>
+    </div>
+    <div class="testimonial-card">
+      <h4>João P.</h4>
+      <p>"Adorei minha caneca personalizada. Atendimento excelente e produto perfeito."</p>
+    </div>
+    <div class="testimonial-card">
+      <h4>Ana L.</h4>
+      <p>"Os produtos são lindos e a entrega super rápida. Recomendo demais!"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCALIZAÇÃO ================= -->
+<div class="location">
+  <h2>📍 Localização</h2>
+  <p>Rua Sião, 225 Casa B, Bairro Santa Carmem, Quarai - RS</p>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.106461970633!2d-56.45246082558081!3d-30.369271546413685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ab09e5a61c1e95%3A0xd40b7a63eb550844!2sASD%20-%20Propaganda%2C%20Publicidade%20e%20Eventos!5e1!3m2!1spt-BR!2sbr!4v1770147599696!5m2!1spt-BR!2sbr"
+    width="100%"
+    height="350"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- ================= FOOTER ================= -->
 <footer>
   <p>© 2026 Ketty Designer • <a href="https://wa.me/5555999712009" target="_blank">Fale comigo</a></p>
 </footer>
@@ -213,6 +297,15 @@
     });
   }, { threshold: 0.2 });
   cards.forEach(card => observer.observe(card));
+
+  // Animação de depoimentos
+  const testimonials = document.querySelectorAll('.testimonial-card');
+  const observerDepo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.2 });
+  testimonials.forEach(t => observerDepo.observe(t));
 
   // Função WhatsApp personalizada
   function contato(produto) {
