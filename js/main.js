@@ -1,33 +1,34 @@
+// ================= CONFIG =================
 const lista = document.getElementById("lista-produtos");
+const btnVerProdutos = document.getElementById("btn-ver-produtos");
+const hero = document.getElementById("hero");
+
+// ================= HERO → PRODUTOS =================
+if (btnVerProdutos) {
+  btnVerProdutos.addEventListener("click", () => {
+    document.getElementById("produtos").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+}
 
 // ================= CARREGAR PRODUTOS =================
 fetch("data/produtos.json")
-  .then(res => {
-    if (!res.ok) throw new Error("Erro ao carregar JSON");
-    return res.json();
-  })
+  .then(res => res.json())
   .then(data => {
-    if (data.papelaria) {
-      criarCategoria("📄 Papelaria & Impressos", data.papelaria);
-    }
-
-    if (data.personalizados) {
-      criarCategoria("🎁 Personalizados", data.personalizados);
-    }
-
-    if (data.eventos) {
-      criarCategoria("🎉 Eventos", data.eventos);
-    }
+    criarCategoria("📄 Papelaria & Impressos", data.papelaria);
+    criarCategoria("🎁 Personalizados", data.personalizados);
+    criarCategoria("🎉 Eventos", data.eventos);
+    ativarAnimacoes();
   })
   .catch(err => {
-    console.error("Erro:", err);
-    lista.innerHTML = "<p>Não foi possível carregar os produtos.</p>";
+    console.error("Erro ao carregar produtos:", err);
   });
 
 // ================= CRIAR CATEGORIA =================
 function criarCategoria(titulo, produtos) {
-  const section = document.createElement("section");
-  section.classList.add("category");
+  const section = document.createElement("div");
+  section.className = "category";
 
   section.innerHTML = `
     <h3>${titulo}</h3>
@@ -36,17 +37,16 @@ function criarCategoria(titulo, produtos) {
 
   const container = section.querySelector(".products");
 
-  produtos.forEach(produto => {
+  produtos.forEach(p => {
     const card = document.createElement("div");
-    card.classList.add("card");
-
-    card.addEventListener("click", () => contato(produto.nome));
+    card.className = "card hidden";
+    card.onclick = () => contato(p.nome);
 
     card.innerHTML = `
-      <img src="${produto.imagem}" alt="${produto.nome}">
+      <img src="${p.imagem}" alt="${p.nome}">
       <div class="info">
-        <h4>${produto.nome}</h4>
-        <div class="price">${produto.preco}</div>
+        <h4>${p.nome}</h4>
+        <div class="price">${p.preco}</div>
       </div>
     `;
 
@@ -56,14 +56,27 @@ function criarCategoria(titulo, produtos) {
   lista.appendChild(section);
 }
 
-// ================= CONTATO WHATSAPP =================
+// ================= WHATSAPP =================
 function contato(produto) {
-  const msg = encodeURIComponent(
-    `Oi! Tenho interesse no produto: ${produto}`
+  const msg = encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
+  window.open(`https://wa.me/5555999712009?text=${msg}`, "_blank");
+}
+
+// ================= ANIMAÇÕES =================
+function ativarAnimacoes() {
+  const elementos = document.querySelectorAll(".card, .testimonial-card");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
   );
 
-  window.open(
-    `https://wa.me/5555999712009?text=${msg}`,
-    "_blank"
-  );
+  elementos.forEach(el => observer.observe(el));
 }
