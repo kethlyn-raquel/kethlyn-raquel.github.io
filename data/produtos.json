@@ -16,13 +16,13 @@
       "nome": "Azulejo Personalizado",
       "preco": "R$ 30,00",
       "imagem": "img/produtos/azulejo.jpg",
-      "estoque": 1000
+      "estoque": 100
     },
     {
       "nome": "Cartão de Visita",
       "preco": "1000 unidades por R$ 150,00",
       "imagem": "img/produtos/cartao.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Wind banner",
