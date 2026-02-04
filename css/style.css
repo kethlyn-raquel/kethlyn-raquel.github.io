@@ -55,73 +55,95 @@ body {
 
 /* ================= PRODUTOS ================= */
 #produtos {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
 #produtos h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
 }
 
-#lista-produtos {
+/* ===== CATEGORIAS ===== */
+.category {
+  max-width: 1200px;
+  margin: 0 auto 70px;
+}
+
+.category h3 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* ===== GRID DE PRODUTOS ===== */
+.products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 25px;
-  max-width: 1100px;
-  margin: auto;
 }
 
-.produto {
+/* ===== CARD ===== */
+.card {
   background: #fff;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
-.produto:hover {
+.card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
-.produto img {
+.card img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  height: 200px;
+  object-fit: contain;
+  background: #f3f3f3;
 }
 
-.produto h3 {
+/* ===== INFO ===== */
+.info {
+  padding: 18px;
+  text-align: center;
+}
+
+.info h4 {
   font-size: 1.1rem;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
-.produto span {
+.price {
   font-weight: bold;
-  color: #e91e63;
+  color: #25d366;
 }
 
 /* ================= DEPOIMENTOS ================= */
 #depoimentos {
   background: #fff;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
 .testimonial-container {
   display: grid;
-  gap: 20px;
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
   margin: auto;
 }
 
 .testimonial-card {
   background: #f7f7f7;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 22px;
+  border-radius: 16px;
 }
 
 /* ================= LOCALIZAÇÃO ================= */
 .location {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
@@ -130,7 +152,7 @@ footer {
   background: #000;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 25px 15px;
 }
 
 footer a {
@@ -152,3 +174,13 @@ footer a {
   width: 100%;
 }
 
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .category h3 {
+    text-align: center;
+  }
+}
