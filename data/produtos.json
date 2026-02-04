@@ -1,1 +1,76 @@
+{
+  "papelaria": [
+    {
+      "nome": "Banner",
+      "preco": "A partir de R$ 80,00",
+      "imagem": "img/produtos/banner.jpg"
+    },
+    {
+      "nome": "Foto Polaroid",
+      "preco": "R$ 2,50",
+      "imagem": "img/produtos/polaroid.jpg"
+    },
+    {
+      "nome": "Azulejo Personalizado",
+      "preco": "R$ 30,00",
+      "imagem": "img/produtos/azulejo.jpg"
+    },
+    {
+      "nome": "Cartão de Visita",
+      "preco": "1000 un. – R$ 150,00",
+      "imagem": "img/produtos/cartao.jpg"
+    },
+    {
+      "nome": "Widerbanner",
+      "preco": "R$ 290,00",
+      "imagem": "img/produtos/widerbanner.jpg"
+    },
+    {
+      "nome": "Mini Calendário",
+      "preco": "R$ 3,50",
+      "imagem": "img/produtos/calendario.jpg"
+    }
+  ],
+
+  "personalizados": [
+    {
+      "nome": "Caneca Personalizada",
+      "preco": "R$ 35,00",
+      "imagem": "img/produtos/caneca.jpg"
+    },
+    {
+      "nome": "Caneca de Chopp",
+      "preco": "R$ 45,00",
+      "imagem": "img/produtos/chopp.jpg"
+    },
+    {
+      "nome": "Chaveiro",
+      "preco": "R$ 3,50",
+      "imagem": "img/produtos/chaveiro.jpg"
+    },
+    {
+      "nome": "Caixinha Personalizada",
+      "preco": "R$ 25,00",
+      "imagem": "img/produtos/caixinha.jpg"
+    }
+  ],
+
+  "eventos": [
+    {
+      "nome": "Banner de 15 Anos",
+      "preco": "R$ 150,00",
+      "imagem": "img/produtos/15anos.jpg"
+    },
+    {
+      "nome": "Buquê com LED",
+      "preco": "R$ 80,00",
+      "imagem": "img/produtos/buque-led.jpg"
+    },
+    {
+      "nome": "Buquê sem LED",
+      "preco": "R$ 70,00",
+      "imagem": "img/produtos/buque.jpg"
+    }
+  ]
+}
 
