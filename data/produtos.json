@@ -4,19 +4,19 @@
       "nome": "Banner",
       "preco": "A partir de R$ 80,00",
       "imagem": "img/produtos/banner.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Foto Polaroid",
       "preco": "R$ 2,50",
       "imagem": "img/produtos/polaroid.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Azulejo Personalizado",
       "preco": "R$ 30,00",
       "imagem": "img/produtos/azulejo.jpg",
-      "estoque": Disponível
+      "estoque": 1000
     },
     {
       "nome": "Cartão de Visita",
@@ -28,19 +28,19 @@
       "nome": "Wind banner",
       "preco": "R$ 290,00",
       "imagem": "img/produtos/widerbanner.jpg",
-      "estoque": 3
+      "estoque": 100
     },
     {
       "nome": "Mini Calendário",
       "preco": "R$ 3,50",
       "imagem": "img/produtos/calendario.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Etiqueta Escolar",
       "preco": "Pacote R$ 15,00",
       "imagem": "img/produtos/etiqueta.jpg",
-      "estoque": Disponível
+      "estoque": 100
     }
   ],
   "personalizados": [
@@ -48,25 +48,25 @@
       "nome": "Caneca Personalizada",
       "preco": "R$ 35,00",
       "imagem": "img/produtos/caneca.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Caneca de Chopp Personalizada",
       "preco": "R$ 4,50 por unidade",
       "imagem": "img/produtos/chopp.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Chaveiro",
       "preco": "R$ 3,50",
       "imagem": "img/produtos/chaveiro.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Caixinha Personalizada",
       "preco": "R$ 25,00",
       "imagem": "img/produtos/caixinha.jpg",
-      "estoque": Disponível
+      "estoque": 100
     }
   ],
   "eventos": [
@@ -74,7 +74,7 @@
       "nome": "Banner de 15 Anos",
       "preco": "R$ 150,00",
       "imagem": "img/produtos/15anos.jpg",
-      "estoque": Disponível
+      "estoque": 100
     },
     {
       "nome": "Buquê de Borboleta com LED",
@@ -86,7 +86,7 @@
       "nome": "Buquê de Borboleta sem LED",
       "preco": "R$ 70,00",
       "imagem": "img/produtos/buque.jpg",
-      "estoque": Disponível
+      "estoque": 100
     }
   ]
 }
