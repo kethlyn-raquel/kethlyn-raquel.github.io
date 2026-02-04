@@ -4,99 +4,130 @@
   <meta charset="UTF-8" />
   <title>Ketty Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:"Poppins",sans-serif;background:#f6f6f6;color:#333;scroll-behavior:smooth;}
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Poppins", sans-serif; background: #f6f6f6; color: #333; }
 
     /* ================= HERO / BOAS-VINDAS ================= */
-    #hero{
-      width:100%;height:100vh;
-      background:url('fundo-hero.jpg') center/cover no-repeat;
-      display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-      color:#1E90FF;transition:opacity 0.8s ease;
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url('fundo-hero.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #1E90FF;
+      opacity: 1;
+      transition: opacity 0.8s ease;
     }
-    #hero img{max-width:250px;width:60%;height:auto;margin-bottom:20px;}
-    #hero h1{font-size:2.5rem;margin:20px 0 10px;}
-    #hero p{font-size:1.2rem;max-width:600px;line-height:1.5;}
-    #hero button{
-      margin-top:30px;padding:15px 30px;border-radius:40px;background:#25d366;color:#fff;
-      border:none;font-weight:600;cursor:pointer;transition:transform 0.3s;
+    #hero img { max-width: 250px; width: 60%; height: auto; margin-bottom: 20px; }
+    #hero h1 { font-size: 2.5rem; margin: 20px 0 10px; }
+    #hero p { font-size: 1.2rem; max-width: 600px; line-height: 1.5; }
+    #hero button {
+      margin-top: 30px; padding: 15px 30px; border-radius: 40px; background: #25d366; color: #fff;
+      border: none; font-weight: 600; cursor: pointer;
     }
-    #hero button:hover{transform:scale(1.05);}
 
     /* ================= HEADER ================= */
-    header{
-      background:linear-gradient(135deg,#ffffff,#f1f1f1);
-      padding:20px;position:sticky;top:0;z-index:1000;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    header {
+      background: linear-gradient(135deg, #ffffff, #f1f1f1);
+      padding: 50px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
     }
-    header h1{font-size:2rem;color:#111;}
-    header p{color:#666;font-size:0.9rem;}
-    nav{margin-top:10px;}
-    nav a{margin:0 12px;text-decoration:none;font-weight:600;color:#111;transition:color 0.3s;}
-    nav a:hover{color:#1E90FF;}
+    header.show { opacity: 1; transform: translateY(0); }
+    header h1 { margin: 0; font-size: 3rem; }
+    header p { margin-top: 10px; color: #666; }
+    nav { margin-top: 20px; }
+    nav a { margin: 0 12px; text-decoration: none; font-weight: 600; color: #111; }
 
-    .buttons{margin-top:10px;}
-    .buttons a{
-      padding:12px 26px;border-radius:40px;margin:6px;display:inline-block;font-weight:600;text-decoration:none;color:#fff;
-      transition:transform 0.3s;
+    .buttons { margin-top: 30px; }
+    .buttons a {
+      padding: 14px 26px; border-radius: 40px; margin: 6px; display: inline-block; font-weight: 600;
+      text-decoration: none; color: #fff;
     }
-    .buttons a:hover{transform:scale(1.05);}
-    .whatsapp{background:#25d366;}
-    .instagram{background:#e1306c;}
+    .whatsapp { background: #25d366; }
+    .instagram { background: #e1306c; }
 
     /* ================= SEÇÕES ================= */
-    section{padding:70px 20px;max-width:1200px;margin:auto;opacity:0;transform:translateY(40px);transition:all 0.8s ease;display:none;}
-    section.show{display:block;opacity:1;transform:translateY(0);}
-    h2{text-align:center;font-size:2.3rem;margin-bottom:50px;}
-    .category{margin-bottom:70px;}
-    .category h3{font-size:1.6rem;margin-bottom:25px;}
+    section { padding: 70px 20px; max-width: 1200px; margin: auto; opacity:0; transform: translateY(40px); transition: all 0.8s ease; display:none; }
+    section.show { display:block; opacity:1; transform: translateY(0); }
 
-    .products{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;
+    h2 { text-align: center; font-size: 2.3rem; margin-bottom: 50px; }
+    .category { margin-bottom: 70px; }
+    .category h3 { font-size: 1.6rem; margin-bottom: 25px; }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
     }
-    .card{
-      background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.1);
-      cursor:pointer;opacity:0;transform:translateY(40px);transition:all 0.6s ease;
+
+    .card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
     }
-    .card.show{opacity:1;transform:translateY(0);}
-    .card:hover{transform:translateY(-8px);}
-    .card img{width:100%;height:220px;object-fit:contain;background:#f6f6f6;}
-    .info{padding:22px;text-align:center;}
-    .price{color:#25d366;font-weight:bold;margin:8px 0;}
+    .card.show { opacity: 1; transform: translateY(0); }
+    .card:hover { transform: translateY(-8px); }
+    .card img { width: 100%; height: 220px; object-fit: contain; background: #f6f6f6; }
+    .info { padding: 22px; text-align: center; }
+    .price { color: #25d366; font-weight: bold; margin: 8px 0; }
 
     /* ================= DEPOIMENTOS ================= */
-    #depoimentos{padding:70px 20px;background:#f2f2f2;display:none;}
-    .testimonial-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1200px;margin:auto;}
-    .testimonial-card{
-      background:#fff;border-radius:20px;padding:25px;box-shadow:0 10px 25px rgba(0,0,0,0.08);
-      transition:transform 0.3s,opacity 0.6s ease;opacity:0;transform:translateY(40px);
+    #depoimentos { padding: 70px 20px; background: #f2f2f2; display:none; }
+    .testimonial-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .testimonial-card.show{opacity:1;transform:translateY(0);}
+    .testimonial-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .testimonial-card.show { opacity: 1; transform: translateY(0); }
 
     /* ================= LOCALIZAÇÃO ================= */
-    .location{text-align:center;margin:70px auto;display:none;}
-    .location iframe{border:0;width:100%;height:350px;}
+    .location { text-align: center; margin: 70px auto; display:none; }
 
     /* ================= FOOTER ================= */
-    footer{background:#111;color:#fff;text-align:center;padding:35px 15px;display:none;}
-    footer a{color:#25d366;text-decoration:none;font-weight:bold;}
+    footer { background: #111; color: #fff; text-align: center; padding: 35px 15px; display:none; }
 
     /* ================= BOTÃO FLUTUANTE ================= */
-    .whatsapp-float{
-      position:fixed;bottom:25px;right:25px;background-color:#25d366;width:60px;height:60px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:999;display:none;animation:pulse 2s infinite;
+    .whatsapp-float {
+      position: fixed; bottom: 25px; right: 25px; background-color: #25d366;
+      width: 60px; height: 60px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 999; display:none; animation: pulse 2s infinite;
     }
-    .whatsapp-float img{width:32px;height:32px;}
-    @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);}}
+    .whatsapp-float img { width: 32px; height: 32px; }
 
-    @media(max-width:768px){
-      .card img{height:200px;}
-      iframe{height:250px;}
-      #hero h1{font-size:2rem;}
-      #hero p{font-size:1rem;max-width:90%;}
+    @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);} }
+
+    @media (max-width: 768px) {
+      .card img { height: 200px; }
+      iframe { height: 250px; }
+      #hero h1 { font-size:2rem; }
+      #hero p { font-size:1rem; max-width:90%; }
     }
   </style>
 </head>
@@ -109,21 +140,6 @@
   <p>Aqui você encontrará diversos produtos personalizados, papelaria criativa, itens para eventos e muito mais, tudo feito com carinho.</p>
   <button onclick="abrirSite()">Ver Produtos</button>
 </section>
-
-<!-- ================= HEADER ================= -->
-<header>
-  <h1>Ketty Designer ✨</h1>
-  <p>Personalizados • Gráfica • Design Criativo</p>
-  <nav>
-    <a href="#produtos" onclick="abrirSite()">Produtos</a>
-    <a href="#depoimentos" onclick="abrirSiteDepo()">Depoimentos</a>
-    <a href="#localizacao">Localização</a>
-  </nav>
-  <div class="buttons">
-    <a class="whatsapp" href="https://wa.me/5555999712009" target="_blank">WhatsApp</a>
-    <a class="instagram" href="https://www.instagram.com/_ketyrf7/" target="_blank">Instagram</a>
-  </div>
-</header>
 
 <!-- ================= PRODUTOS ================= -->
 <section id="produtos">
@@ -176,7 +192,7 @@
     </div>
     <div class="testimonial-card">
       <h4>Maria Luiza</h4>
-      <p>"Lindo seu trabalho, Amei o atendimento."</p>
+      <p>"Lindo seu trabalho,Amei o atendimento."</p>
     </div>
     <div class="testimonial-card">
       <h4>Manu</h4>
@@ -191,8 +207,7 @@
   <p>Rua Sião, 225 Casa B, Bairro Santa Carmem, Quarai - RS</p>
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.106461970633!2d-56.45246082558081!3d-30.369271546413685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ab09e5a61c1e95%3A0xd40b7a63eb550844!2sASD%20-%20Propaganda%2C%20Publicidade%20e%20Eventos!5e1!3m2!1spt-BR!2sbr!4v1770147599696!5m2!1spt-BR!2sbr"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 <!-- ================= FOOTER ================= -->
@@ -206,42 +221,48 @@
 </a>
 
 <script>
-  // Abrir site após hero
-  function abrirSite(){
-    document.getElementById('hero').style.display='none';
-    ['produtos','depoimentos'].forEach(id=>{
-      const el=document.getElementById(id);
-      el.style.display='block';
-      setTimeout(()=>{el.classList.add('show');},50);
-    });
-    const loc=document.querySelector('.location');
-    loc.style.display='block'; loc.classList.add('show');
-    const footer=document.querySelector('footer');
-    footer.style.display='block';footer.classList.add('show');
-    const float=document.querySelector('.whatsapp-float');
-    float.style.display='flex';float.classList.add('show');
-  }
+function abrirSite(){
+  const hero = document.getElementById('hero');
+  hero.style.opacity = 0;
+  setTimeout(() => { hero.style.display='none'; }, 800);
 
-  function abrirSiteDepo(){
-    abrirSite();
-    window.scrollTo({top:document.getElementById('depoimentos').offsetTop-50,behavior:'smooth'});
-  }
+  ['produtos','depoimentos'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.display='block';
+    setTimeout(()=>{ el.classList.add('show'); },50);
+  });
 
-  // Animação de cards
-  const cards=document.querySelectorAll('.card');
-  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show');});},{threshold:0.2});
-  cards.forEach(card=>observer.observe(card));
+  document.querySelector('.location').style.display='block';
+  document.querySelector('.location').classList.add('show');
 
-  // Animação depoimentos
-  const testimonials=document.querySelectorAll('.testimonial-card');
-  const observerDepo=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show');});},{threshold:0.2});
-  testimonials.forEach(t=>observerDepo.observe(t));
+  const footer = document.querySelector('footer');
+  footer.style.display='block';
+  footer.classList.add('show');
 
-  // Função WhatsApp personalizada
-  function contato(produto){
-    const msg=encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
-    window.open(`https://wa.me/5555999712009?text=${msg}`,'_blank');
-  }
+  const float = document.querySelector('.whatsapp-float');
+  float.style.display='flex';
+  float.classList.add('show');
+}
+
+// Animação de cards
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+}, { threshold:0.2 });
+cards.forEach(card => observer.observe(card));
+
+// Animação depoimentos
+const testimonials = document.querySelectorAll('.testimonial-card');
+const observerDepo = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+}, { threshold:0.2 });
+testimonials.forEach(t => observerDepo.observe(t));
+
+// Função WhatsApp personalizada
+function contato(produto){
+  const msg = encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
+  window.open(`https://wa.me/5555999712009?text=${msg}`,'_blank');
+}
 </script>
 </body>
 </html>
