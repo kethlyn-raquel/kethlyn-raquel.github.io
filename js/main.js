@@ -80,3 +80,13 @@ function ativarAnimacoes() {
 
   elementos.forEach(el => observer.observe(el));
 }
+function abrirSite() {
+  const secaoProdutos = document.getElementById("produtos");
+
+  secaoProdutos.style.display = "block";
+
+  secaoProdutos.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
