@@ -1,40 +1,39 @@
-alert("JS carregou");
+// ================= BOTÃO VER PRODUTOS =================
+const btn = document.getElementById("btn-produtos");
+const hero = document.getElementById("hero");
+const produtos = document.getElementById("produtos");
+
+btn.addEventListener("click", () => {
+  hero.style.display = "none";
+  produtos.style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ================= CARREGAR PRODUTOS =================
 const lista = document.getElementById("lista-produtos");
 
-// ================== ABRIR PRODUTOS ==================
-function abrirSite() {
-  const secaoProdutos = document.getElementById("produtos");
-
-  secaoProdutos.style.display = "block";
-
-  secaoProdutos.scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-// deixa a função acessível pro HTML
-window.abrirSite = abrirSite;
-
-// ================== CARREGAR PRODUTOS ==================
 fetch("data/produtos.json")
   .then(res => res.json())
   .then(data => {
     criarCategoria("📄 Papelaria & Impressos", data.papelaria);
     criarCategoria("🎁 Personalizados", data.personalizados);
     criarCategoria("🎉 Eventos", data.eventos);
-  })
-  .catch(err => console.error("Erro ao carregar produtos:", err));
+  });
 
 function criarCategoria(titulo, produtos) {
   const section = document.createElement("div");
-  section.className = "category";
+  section.className = "category hidden";
 
-  section.innerHTML = `<h3>${titulo}</h3><div class="products"></div>`;
+  section.innerHTML = `
+    <h3>${titulo}</h3>
+    <div class="products"></div>
+  `;
+
   const container = section.querySelector(".products");
 
   produtos.forEach(p => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card hidden";
     card.onclick = () => contato(p.nome);
 
     card.innerHTML = `
@@ -49,9 +48,20 @@ function criarCategoria(titulo, produtos) {
   });
 
   lista.appendChild(section);
+  observer.observe(section);
 }
 
+// ================= WHATSAPP =================
 function contato(produto) {
   const msg = encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
   window.open(`https://wa.me/5555999712009?text=${msg}`, "_blank");
 }
+
+// ================= ANIMAÇÕES =================
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
