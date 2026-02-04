@@ -21,7 +21,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
       color: #fff;
       opacity: 1;
       transition: opacity 0.8s ease;
@@ -134,7 +133,7 @@
 </head>
 <body>
 
-<!-- ================= HERO ================= -->
+<!-- ================= HERO / TELA DE BOAS-VINDAS ================= -->
 <section id="hero">
   <img src="logo.png" alt="Ketty Designer">
   <h1>Bem-vindo à minha lojinha online!</h1>
@@ -145,7 +144,42 @@
 <!-- ================= PRODUTOS ================= -->
 <section id="produtos">
   <h2>Meus Produtos</h2>
-  <!-- Coloque aqui todos os cards de produtos, categorias, como antes -->
+
+  <!-- PAPELARIA -->
+  <div class="category">
+    <h3>📄 Papelaria & Impressos</h3>
+    <div class="products">
+      <div class="card" onclick="contato('Banner')"><img src="banner.jpg"><div class="info"><h4>Banner</h4><div class="price">A partir de R$ 80,00</div></div></div>
+      <div class="card" onclick="contato('Foto Polaroid')"><img src="polaroid.jpg"><div class="info"><h4>Foto Polaroid</h4><div class="price">R$ 2,50</div></div></div>
+      <div class="card" onclick="contato('Azulejo Personalizado')"><img src="azulejo.jpg"><div class="info"><h4>Azulejo Personalizado</h4><div class="price">R$ 30,00</div></div></div>
+      <div class="card" onclick="contato('Cartão de Visita')"><img src="cartao.jpg"><div class="info"><h4>Cartão de Visita</h4><div class="price">1000 un. – R$ 150,00</div></div></div>
+      <div class="card" onclick="contato('Widerbanner')"><img src="widerbanner.jpg"><div class="info"><h4>Widerbanner</h4><div class="price">R$ 290,00</div></div></div>
+      <div class="card" onclick="contato('Mini Calendário')"><img src="calendario.jpg"><div class="info"><h4>Mini Calendário</h4><div class="price">R$ 3,50</div></div></div>
+      <div class="card" onclick="contato('Etiqueta Escolar')"><img src="etiqueta.jpg"><div class="info"><h4>Etiqueta Escolar</h4><div class="price">Pacote R$ 15,00</div></div></div>
+      <div class="card" onclick="contato('Etiqueta Personalizada')"><img src="etiqueta-personalizada.jpg"><div class="info"><h4>Etiqueta Personalizada</h4><div class="price">240 un. – R$ 50,00</div></div></div>
+    </div>
+  </div>
+
+  <!-- PERSONALIZADOS -->
+  <div class="category">
+    <h3>🎁 Personalizados</h3>
+    <div class="products">
+      <div class="card" onclick="contato('Caneca')"><img src="caneca.jpg"><div class="info"><h4>Caneca</h4><div class="price">R$ 35,00</div></div></div>
+      <div class="card" onclick="contato('Caneca de Chopp Personalizada')"><img src="chopp.jpg"><div class="info"><h4>Caneca de Chopp</h4><div class="price">R$ 4,50 / un.</div></div></div>
+      <div class="card" onclick="contato('Chaveiro')"><img src="chaveiro.jpg"><div class="info"><h4>Chaveiro</h4><div class="price">R$ 3,50</div></div></div>
+      <div class="card" onclick="contato('Caixinha Personalizada')"><img src="caixinha.jpg"><div class="info"><h4>Caixinha Personalizada</h4><div class="price">R$ 25,00</div></div></div>
+    </div>
+  </div>
+
+  <!-- EVENTOS -->
+  <div class="category">
+    <h3>🎉 Eventos</h3>
+    <div class="products">
+      <div class="card" onclick="contato('Banner de 15 Anos')"><img src="15anos.jpg"><div class="info"><h4>Banner de 15 Anos</h4><div class="price">R$ 150,00</div></div></div>
+      <div class="card" onclick="contato('Buquê de Borboleta com LED')"><img src="buque-led.jpg"><div class="info"><h4>Buquê com LED</h4><div class="price">R$ 80,00</div></div></div>
+      <div class="card" onclick="contato('Buquê de Borboleta sem LED')"><img src="buque.jpg"><div class="info"><h4>Buquê sem LED</h4><div class="price">R$ 70,00</div></div></div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= DEPOIMENTOS ================= -->
@@ -188,16 +222,13 @@
 
 <script>
 function abrirSite(){
-  // Fade out hero
   const hero = document.getElementById('hero');
   hero.style.opacity = 0;
   setTimeout(() => { hero.style.display='none'; }, 800);
 
-  // Mostrar seções com fade-in
-  const mostrar = ['produtos','depoimentos'];
-  mostrar.forEach(id => {
+  ['produtos','depoimentos'].forEach(id => {
     const el = document.getElementById(id);
-    el.style.display = 'block';
+    el.style.display='block';
     setTimeout(()=>{ el.classList.add('show'); },50);
   });
 
@@ -216,9 +247,7 @@ function abrirSite(){
 // Animação de cards
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('show');
-  });
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
 }, { threshold:0.2 });
 cards.forEach(card => observer.observe(card));
 
