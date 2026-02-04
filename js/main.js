@@ -7,7 +7,9 @@ const produtosSecao = document.getElementById("produtos");
 // ================= HERO → PRODUTOS =================
 if (btnVerProdutos) {
   btnVerProdutos.addEventListener("click", () => {
-    produtosSecao.scrollIntoView({
+    produtosSecao.style.display = "block"; // garante que a seção apareça
+    window.scrollTo({
+      top: produtosSecao.offsetTop,
       behavior: "smooth"
     });
   });
@@ -56,14 +58,14 @@ function criarCategoria(titulo, produtos) {
     const stockDiv = card.querySelector(".stock");
     if (p.estoque === 0) stockDiv.style.color = "red";
 
-    // Clique no card / WhatsApp
-    card.onclick = () => {
+    // Clique seguro: mobile + desktop
+    card.addEventListener("click", () => {
       if (p.estoque === 0) {
         alert("Produto esgotado 😞");
       } else {
         contato(p.nome);
       }
-    };
+    });
 
     container.appendChild(card);
   });
