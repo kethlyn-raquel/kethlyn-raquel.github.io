@@ -2,11 +2,12 @@
 const lista = document.getElementById("lista-produtos");
 const btnVerProdutos = document.getElementById("btn-ver-produtos");
 const hero = document.getElementById("hero");
+const produtosSecao = document.getElementById("produtos");
 
 // ================= HERO → PRODUTOS =================
 if (btnVerProdutos) {
   btnVerProdutos.addEventListener("click", () => {
-    document.getElementById("produtos").scrollIntoView({
+    produtosSecao.scrollIntoView({
       behavior: "smooth"
     });
   });
@@ -40,15 +41,29 @@ function criarCategoria(titulo, produtos) {
   produtos.forEach(p => {
     const card = document.createElement("div");
     card.className = "card hidden";
-    card.onclick = () => contato(p.nome);
 
+    // Conteúdo do card com estoque
     card.innerHTML = `
       <img src="${p.imagem}" alt="${p.nome}">
       <div class="info">
         <h4>${p.nome}</h4>
         <div class="price">${p.preco}</div>
+        <div class="stock">${p.estoque > 0 ? 'Disponível: ' + p.estoque : 'Esgotado'}</div>
       </div>
     `;
+
+    // Cor do estoque
+    const stockDiv = card.querySelector(".stock");
+    if (p.estoque === 0) stockDiv.style.color = "red";
+
+    // Clique no card / WhatsApp
+    card.onclick = () => {
+      if (p.estoque === 0) {
+        alert("Produto esgotado 😞");
+      } else {
+        contato(p.nome);
+      }
+    };
 
     container.appendChild(card);
   });
