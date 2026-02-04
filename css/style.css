@@ -212,3 +212,22 @@ footer a {
     text-align: center;
   }
 }
+/* ================= ESTOQUE E ANIMAÇÕES ================= */
+.card.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none; /* previne clique antes de aparecer */
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+  pointer-events: auto; /* libera clique quando visível */
+}
+
+.stock {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
