@@ -1,15 +1,21 @@
 // ================= BOTÃO VER PRODUTOS =================
-const btn = document.getElementById("btn-produtos");
-const hero = document.getElementById("hero");
-const produtos = document.getElementById("produtos");
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn-ver-produtos");
+  const produtos = document.getElementById("produtos");
 
-btn.addEventListener("click", () => {
-  hero.style.display = "none";
-  produtos.style.display = "block";
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  // Segurança: se não achar elementos, não quebra
+  if (!btn || !produtos) return;
+
+  btn.addEventListener("click", () => {
+    produtos.style.display = "block";
+
+    produtos.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
 });
 
-// ================= CARREGAR PRODUTOS =================
+// ================= CARREGAR PRODUTOS DO JSON =================
 const lista = document.getElementById("lista-produtos");
 
 fetch("data/produtos.json")
@@ -22,19 +28,14 @@ fetch("data/produtos.json")
 
 function criarCategoria(titulo, produtos) {
   const section = document.createElement("div");
-  section.className = "category hidden";
+  section.className = "category";
 
-  section.innerHTML = `
-    <h3>${titulo}</h3>
-    <div class="products"></div>
-  `;
-
+  section.innerHTML = `<h3>${titulo}</h3><div class="products"></div>`;
   const container = section.querySelector(".products");
 
   produtos.forEach(p => {
     const card = document.createElement("div");
-    card.className = "card hidden";
-    card.onclick = () => contato(p.nome);
+    card.className = "card";
 
     card.innerHTML = `
       <img src="${p.imagem}" alt="${p.nome}">
@@ -44,11 +45,12 @@ function criarCategoria(titulo, produtos) {
       </div>
     `;
 
+    card.addEventListener("click", () => contato(p.nome));
+
     container.appendChild(card);
   });
 
   lista.appendChild(section);
-  observer.observe(section);
 }
 
 // ================= WHATSAPP =================
@@ -56,12 +58,3 @@ function contato(produto) {
   const msg = encodeURIComponent(`Oi! Tenho interesse no produto: ${produto}`);
   window.open(`https://wa.me/5555999712009?text=${msg}`, "_blank");
 }
-
-// ================= ANIMAÇÕES =================
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.2 });
