@@ -1,3 +1,4 @@
+alert("JS carregou");
 const lista = document.getElementById("lista-produtos");
 
 // ================== ABRIR PRODUTOS ==================
