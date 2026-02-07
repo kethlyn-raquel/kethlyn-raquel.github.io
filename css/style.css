@@ -65,7 +65,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* ===== CATEGORIAS ===== */
+/* ================= CATEGORIAS ================= */
 .category {
   max-width: 1200px;
   margin: 0 auto 70px;
@@ -77,15 +77,16 @@ body {
   text-align: left;
 }
 
-/* ===== GRID DE PRODUTOS ===== */
+/* ================= GRID ================= */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 25px;
 }
 
-/* ===== CARD ===== */
+/* ================= CARD ================= */
 .card {
+  position: relative;
   background: #fff;
   border-radius: 18px;
   overflow: hidden;
@@ -106,7 +107,21 @@ body {
   background: #f3f3f3;
 }
 
-/* ===== INFO ===== */
+/* ================= BADGE ================= */
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ff8a00, #ff3d00);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= INFO ================= */
 .info {
   padding: 18px;
   text-align: center;
@@ -120,6 +135,41 @@ body {
 .price {
   font-weight: bold;
   color: #25d366;
+  margin-bottom: 8px;
+}
+
+/* ================= VARIAÇÕES ================= */
+.variacao {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* ================= ESTOQUE ================= */
+.stock {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.stock.esgotado {
+  color: #d32f2f;
+}
+
+.stock.alerta {
+  color: #ff6f00;
+  animation: pulse 1.3s infinite;
+}
+
+/* ================= ANIMAÇÃO ALERTA ================= */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 /* ================= DEPOIMENTOS ================= */
@@ -179,27 +229,14 @@ footer a {
 .hidden {
   opacity: 0;
   transform: translateY(30px);
+  pointer-events: none;
 }
 
 .show {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.6s ease;
-}
-
-.card.show {
-  transition-delay: 0.05s;
-}
-
-.testimonial-card.hidden {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.testimonial-card.show {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.5s ease;
+  pointer-events: auto;
 }
 
 /* ================= RESPONSIVO ================= */
@@ -211,23 +248,8 @@ footer a {
   .category h3 {
     text-align: center;
   }
-}
-/* ================= ESTOQUE E ANIMAÇÕES ================= */
-.card.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none; /* previne clique antes de aparecer */
-}
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.5s ease;
-  pointer-events: auto; /* libera clique quando visível */
+  .card img {
+    height: 180px;
+  }
 }
-
-.stock {
-  font-weight: bold;
-  margin-top: 5px;
-}
-
