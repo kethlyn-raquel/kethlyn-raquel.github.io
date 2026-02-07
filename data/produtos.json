@@ -67,6 +67,12 @@
       "preco": "R$ 25,00",
       "imagem": "img/produtos/caixinha.jpg",
       "estoque": 100
+    },
+    {
+      "nome": "Caixa Cone Pirâmide",
+      "preco": "R$ 4,00",
+      "imagem": "img/produtos/caixa-cone-piramide.jpg",
+      "estoque": 100
     }
   ],
   "eventos": [
