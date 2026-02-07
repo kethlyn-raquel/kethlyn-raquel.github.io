@@ -4,19 +4,28 @@
       "nome": "Banner",
       "preco": "A partir de R$ 80,00",
       "imagem": "img/produtos/banner.jpg",
-      "estoque": 100
+      "estoque": 100,
+      "variacoes": {
+        "tamanhos": ["60x90", "80x120", "100x150", "120x200"]
+      }
     },
     {
       "nome": "Foto Polaroid",
       "preco": "R$ 2,50",
       "imagem": "img/produtos/polaroid.jpg",
-      "estoque": 100
+      "estoque": 100,
+      "variacoes": {
+        "tamanhos": ["6x7", "8x9"]
+      }
     },
     {
       "nome": "Azulejo Personalizado",
       "preco": "R$ 30,00",
       "imagem": "img/produtos/azulejo.jpg",
-      "estoque": 100
+      "estoque": 100,
+      "variacoes": {
+        "tamanhos": ["20x20", "21x30"]
+      }
     },
     {
       "nome": "Cartão de Visita",
@@ -43,6 +52,7 @@
       "estoque": 100
     }
   ],
+
   "personalizados": [
     {
       "nome": "Caneca Personalizada",
@@ -72,9 +82,11 @@
       "nome": "Caixa Cone Pirâmide",
       "preco": "R$ 4,00",
       "imagem": "img/produtos/caixa-cone-piramide.jpg",
-      "estoque": 100
+      "estoque": 100,
+      "novidade": true
     }
   ],
+
   "eventos": [
     {
       "nome": "Banner de 15 Anos",
