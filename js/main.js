@@ -7,14 +7,14 @@ modal.innerHTML = `
   <span class="close">×</span>
   <h3 id="m-nome"></h3>
   <p id="m-preco"></p>
-  <select id="m-var" class="select-premium"></select>
+
   <button class="buy-btn" id="add">Adicionar</button>
   <div id="cart"></div>
 
   <div class="pix-box">
     <h4>💳 Pix</h4>
     <img id="pix-qrcode">
-    <input id="pix-copia" readonly>
+    <textarea id="pix-copia" readonly></textarea>
     <button class="buy-btn" id="copiarPix">Copiar Pix</button>
   </div>
 
@@ -60,42 +60,9 @@ function abrir(p) {
   modal.style.display = "flex";
   document.getElementById("m-nome").innerText = p.nome;
   document.getElementById("m-preco").innerText = p.preco;
-
-  const sel = document.getElementById("m-var");
-  sel.innerHTML = "";
-
-  if (p.variacoes?.tamanhos) {
-    p.variacoes.tamanhos.forEach(t => {
-      sel.innerHTML += `<option>${t}</option>`;
-    });
-  } else {
-    sel.innerHTML = "<option>Padrão</option>";
-  }
 }
 
 document.querySelector(".close").onclick = () => modal.style.display = "none";
-
-function gerarPix(valor) {
-  const chave = "55999712009";
-  const nome = "KETHLYN RAQUEL";
-  const cidade = "QUARAI";
-
-  let payload =
-`00020126360014BR.GOV.BCB.PIX0114${chave}52040000530398654${valor.toFixed(2).length}${valor.toFixed(2)}5802BR59${nome.length}${nome}60${cidade.length}${cidade}6304`;
-
-  payload += crc16(payload);
-  return payload;
-}
-
-function crc16(str) {
-  let crc = 0xFFFF;
-  for (let c of str) {
-    crc ^= c.charCodeAt(0) << 8;
-    for (let i = 0; i < 8; i++)
-      crc = crc & 0x8000 ? (crc << 1) ^ 0x1021 : crc << 1;
-  }
-  return (crc & 0xFFFF).toString(16).toUpperCase();
-}
 
 document.getElementById("add").onclick = () => {
   carrinho.push(atual);
@@ -104,25 +71,34 @@ document.getElementById("add").onclick = () => {
 
 function atualizar() {
   let total = 0;
+  let texto = "Pedido Ketty Designer:%0A%0A";
+
   const cart = document.getElementById("cart");
   cart.innerHTML = "";
 
   carrinho.forEach(p => {
     cart.innerHTML += `<div>• ${p.nome}</div>`;
+    texto += `• ${p.nome}%0A`;
     total += parseFloat(p.preco.replace("R$", "").replace(",", "."));
   });
 
-  const pix = gerarPix(total);
+  texto += `%0ATotal: R$ ${total.toFixed(2)}`;
+
+  const pix =
+`00020126360014BR.GOV.BCB.PIX011455999712009520400005303986540${total.toFixed(2)}5802BR5913KETHLYN RAQUEL6006QUARAI6304`;
+
   document.getElementById("pix-copia").value = pix;
   document.getElementById("pix-qrcode").src =
-    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + pix;
-};
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(pix);
+
+  document.getElementById("finalizar").onclick = () => {
+    window.open(`https://wa.me/5555999712009?text=${texto}`);
+  };
+}
 
 document.getElementById("copiarPix").onclick = () => {
-  navigator.clipboard.writeText(document.getElementById("pix-copia").value);
+  const campo = document.getElementById("pix-copia");
+  campo.select();
+  document.execCommand("copy");
   alert("Pix copiado!");
-};
-
-document.getElementById("finalizar").onclick = () => {
-  window.open("https://wa.me/5555999712009");
 };
