@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Ketty Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,40 +10,66 @@
 </head>
 <body>
 
+<!-- HERO -->
 <section id="hero">
-  <img src="img/logo.png" class="logo-hero">
-  <h1>Seja bem-vindo(a) à Ketty Designer 💜</h1>
-  <p>Uma lojinha online cheia de personalizados e papelaria criativa,
-feitos com amor, atenção aos detalhes e um toque especial ✨</p>
+  <img src="img/logo.png" alt="Ketty Designer" class="hero-logo">
+
+  <h1>Ketty Designer</h1>
+  <p>
+    Seja bem-vindo(a) à Ketty Designer 💜
+Uma lojinha online cheia de personalizados e papelaria criativa,
+feitos com amor, atenção aos detalhes e um toque especial ✨
+  </p>
+
   <button id="btn-ver-produtos">Ver Produtos</button>
 </section>
 
-<section id="produtos">
-  <h2>✨ Meus Produtos ✨</h2>
-  <div id="lista-produtos"></div>
-</section>
+<!-- CONTEÚDO PRINCIPAL (ESCONDIDO NO INÍCIO) -->
+<main id="conteudo">
 
-<section id="depoimentos">
-  <h2>🗨️ Depoimentos</h2>
-  <div class="testimonial-container">
-    <div class="testimonial-card">"Todo mundo adorou!"</div>
-    <div class="testimonial-card">"Amei o atendimento."</div>
-    <div class="testimonial-card">"Trabalho lindo."</div>
-  </div>
-</section>
+  <section id="produtos">
+    <h2>✨ Meus Produtos ✨</h2>
+    <div id="lista-produtos"></div>
+  </section>
 
-<!-- LOCALIZAÇÃO FULL WIDTH -->
-<section id="localizacao-full">
-  <h2>📍 Localização</h2>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.106461970633!2d-56.45246082558081!3d-30.369271546413685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ab09e5a61c1e95%3A0xd40b7a63eb550844!2sASD%20-%20Propaganda%2C%20Publicidade%20e%20Eventos!5e1!3m2!1spt-BR!2sbr!4v1770618969235!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </iframe>
-</section>
+  <section id="depoimentos">
+    <h2>🗨️ Depoimentos</h2>
+
+    <div class="testimonial-container">
+      <div class="testimonial-card">
+        <h4>Karoline</h4>
+        <p>"Todo mundo adorou os personalizados."</p>
+      </div>
+
+      <div class="testimonial-card">
+        <h4>Maria Luiza</h4>
+        <p>"Lindo seu trabalho, amei o atendimento."</p>
+      </div>
+
+      <div class="testimonial-card">
+        <h4>Manu</h4>
+        <p>"Você faz um lindo trabalho."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="location">
+    <h2>📍 Localização</h2>
+    <p>Rua Sião, 225 Casa B, Bairro Santa Carmem, Quaraí - RS</p>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.106461970633!2d-56.45246082558081!3d-30.369271546413685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ab09e5a61c1e95%3A0xd40b7a63eb550844!2sASD%20-%20Propaganda%2C%20Publicidade%20e%20Eventos!5e1!3m2!1spt-BR!2sbr!4v1770618134380!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </iframe>
+  </section>
+
+</main>
 
 <footer>
-  © 2026 Ketty Designer • <a href="https://wa.me/5555999712009">Fale comigo</a>
+  <p>© 2026 Ketty Designer •
+    <a href="https://wa.me/5555999712009" target="_blank">Fale comigo</a>
+  </p>
 </footer>
 
-<a href="https://wa.me/5555999712009" class="whatsapp-float">
+<a href="https://wa.me/5555999712009" target="_blank" class="whatsapp-float">
   <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
 </a>
 
