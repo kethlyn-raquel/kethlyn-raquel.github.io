@@ -5,45 +5,67 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  background: #f7f7f7;
-  color: #333;
-}
-
 /* HERO */
 #hero {
   min-height: 100vh;
-  background: linear-gradient(135deg,#f8cdda,#f88fb0);
+  background: linear-gradient(135deg,#7c3aed,#9333ea);
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px;
 }
 
-.logo {
+.hero-logo {
   max-width: 180px;
   margin-bottom: 20px;
 }
 
-#hero button {
-  padding: 12px 30px;
-  border-radius: 30px;
+#hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+#hero p {
+  max-width: 520px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+#btn-ver-produtos {
+  padding: 14px 32px;
+  border-radius: 999px;
   border: none;
-  background: #000;
-  color: #fff;
   cursor: pointer;
+  background: #fff;
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* CONTEÚDO */
+#conteudo {
+  display: none;
+}
+
+/* SEÇÕES */
+section {
+  max-width: 1200px;
+  margin: 70px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 /* PRODUTOS */
-#produtos {
-  padding: 70px 20px;
-}
-
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
   gap: 25px;
 }
 
@@ -51,14 +73,14 @@ body {
   background: #fff;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
 .card img {
   width: 100%;
   height: 220px;
   object-fit: contain;
-  background: #f3f3f3;
+  background: #f9f9f9;
 }
 
 .info {
@@ -66,9 +88,14 @@ body {
   text-align: center;
 }
 
+.price {
+  color: #16a34a;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
 .buy-btn {
-  margin-top: 10px;
-  background: #7c3aed;
+  background: linear-gradient(135deg,#7c3aed,#9333ea);
   color: #fff;
   border: none;
   padding: 10px 22px;
@@ -76,40 +103,50 @@ body {
   cursor: pointer;
 }
 
-/* MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+/* DEPOIMENTOS */
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
 }
 
-.modal-content {
+.testimonial-card {
   background: #fff;
-  padding: 25px;
-  border-radius: 18px;
-  width: 90%;
-  max-width: 420px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.07);
 }
 
-.select-premium {
+/* LOCALIZAÇÃO */
+.location iframe {
   width: 100%;
-  padding: 10px;
-  margin: 15px 0;
+  height: 300px;
+  border-radius: 16px;
+  border: none;
 }
 
 /* WHATSAPP */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .whatsapp-float img {
-  width: 100%;
+  width: 32px;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
 }
