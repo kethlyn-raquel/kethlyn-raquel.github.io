@@ -1,102 +1,26 @@
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 body {
   background: #f7f7f7;
-  color: #333;
 }
 
-/* ================= HERO ================= */
-#hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f8cdda, #f88fb0);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-#hero img {
-  width: 160px;
-  margin-bottom: 20px;
-}
-
-#hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-}
-
-#hero p {
-  max-width: 600px;
-  font-size: 1rem;
-  margin-bottom: 25px;
-}
-
-#hero button {
-  padding: 12px 30px;
-  border: none;
-  background: #000;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#hero button:hover {
-  background: #222;
-}
-
-/* ================= PRODUTOS ================= */
-#produtos {
-  padding: 70px 20px;
-  text-align: center;
-}
-
-#produtos h2 {
-  font-size: 2.2rem;
-  margin-bottom: 50px;
-}
-
-/* ================= CATEGORIAS ================= */
-.category {
-  max-width: 1200px;
-  margin: 0 auto 70px;
-}
-
-.category h3 {
-  font-size: 1.6rem;
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-/* ================= GRID ================= */
+/* ===== PRODUTOS ===== */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
-/* ================= CARD ================= */
 .card {
-  position: relative;
   background: #fff;
   border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
 .card img {
@@ -106,109 +30,81 @@ body {
   background: #f3f3f3;
 }
 
-/* ================= BADGE ================= */
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: linear-gradient(135deg, #ff8a00, #ff3d00);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* ================= INFO ================= */
 .info {
-  padding: 18px;
+  padding: 15px;
   text-align: center;
 }
 
-.info h4 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
 .price {
-  font-weight: bold;
   color: #25d366;
-  margin-bottom: 8px;
-}
-
-/* ================= ESTOQUE ================= */
-.stock {
   font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
 }
 
-.stock.esgotado {
-  color: #d32f2f;
-}
-
-.stock.alerta {
-  color: #ff6f00;
-  animation: pulse 1.3s infinite;
-}
-
-/* ================= BOTÃO COMPRAR ================= */
+/* ===== BOTÃO COMPRAR ===== */
 .buy-btn {
+  margin-top: 10px;
   width: 100%;
   padding: 12px;
   border: none;
-  border-radius: 12px;
-  background: #25d366;
+  border-radius: 25px;
+  background: #000;
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.buy-btn:hover {
-  background: #1ebe5d;
-  transform: scale(1.03);
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-.buy-btn:disabled {
-  background: #bbb;
-  cursor: not-allowed;
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 20px;
 }
 
-/* ================= ANIMAÇÃO ALERTA ================= */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-/* ================= ANIMAÇÕES ================= */
-.hidden {
-  opacity: 0;
-  transform: translateY(30px);
-  pointer-events: none;
+/* ===== SELECT PREMIUM ===== */
+.select-wrapper {
+  margin: 15px 0;
 }
 
-.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.6s ease;
-  pointer-events: auto;
+.select-premium {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
 }
 
-/* ================= RESPONSIVO ================= */
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 1.9rem;
-  }
+/* ===== CARRINHO ===== */
+.cart-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
-  .category h3 {
-    text-align: center;
-  }
-
-  .card img {
-    height: 180px;
-  }
+/* ===== PIX ===== */
+.pix-box {
+  background: #f1f1f1;
+  border-radius: 14px;
+  padding: 15px;
+  margin-top: 15px;
 }
