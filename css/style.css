@@ -13,7 +13,6 @@ section {
 
 #hero {
   text-align: center;
-  padding: 60px 20px;
 }
 
 .logo-hero {
@@ -21,29 +20,10 @@ section {
   margin-bottom: 20px;
 }
 
-#btn-ver-produtos {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(135deg,#7c3aed,#9333ea);
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
-  margin-top: 25px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
 }
 
 .card img {
@@ -51,17 +31,6 @@ section {
   height: 220px;
   object-fit: contain;
   background: #f9f9f9;
-}
-
-.card .info {
-  padding: 15px;
-  text-align: center;
-}
-
-.price {
-  color: #16a34a;
-  font-weight: 600;
-  margin: 10px 0;
 }
 
 .buy-btn {
@@ -73,6 +42,7 @@ section {
   cursor: pointer;
 }
 
+/* MODAL */
 .modal {
   position: fixed;
   inset: 0;
@@ -85,16 +55,13 @@ section {
 .modal-content {
   background: #fff;
   padding: 25px;
-  width: 90%;
   max-width: 420px;
+  width: 90%;
   border-radius: 18px;
 }
 
 .pix-box {
   margin-top: 20px;
-  background: #f9fafb;
-  padding: 15px;
-  border-radius: 14px;
   text-align: center;
 }
 
@@ -103,26 +70,14 @@ section {
   margin: 10px 0;
 }
 
-#pix-copia {
+/* LOCALIZAÇÃO FULL */
+#localizacao-full {
+  max-width: 100%;
+  padding: 0;
+}
+
+#localizacao-full iframe {
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-.whatsapp-float {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.whatsapp-float img {
-  width: 32px;
+  height: 400px;
+  border: none;
 }
