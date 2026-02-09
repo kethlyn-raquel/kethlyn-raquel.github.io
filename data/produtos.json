@@ -82,8 +82,19 @@
       "nome": "Caixa Cone Pirâmide",
       "preco": "R$ 4,00",
       "imagem": "img/produtos/caixa-cone-piramide.jpg",
-      "estoque": 100,
-      "novidade": true
+      "estoque": 100
+    },
+    {
+      "nome": "Topo de Bolo Personalizado",
+      "preco": "R$ 15,00",
+      "imagem": "img/produtos/topo-bolo.jpg",
+      "estoque": 100
+    },
+    {
+      "nome": "Quadro Personalizado",
+      "preco": "R$ 29,90",
+      "imagem": "img/produtos/quadro-personalizado.jpg",
+      "estoque": 100
     }
   ],
 
