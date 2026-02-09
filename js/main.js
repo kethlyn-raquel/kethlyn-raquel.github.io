@@ -41,18 +41,31 @@ function criarCategoria(titulo, produtos) {
     const card = document.createElement("div");
     card.className = "card hidden";
 
-    if (p.estoque === 0) {
-      card.classList.add("esgotado");
-    }
-
-    // TEXTO DE ESTOQUE
+    // ===== TEXTO DE ESTOQUE =====
     let estoqueTexto = "";
+    let estoqueClasse = "";
+
     if (p.estoque === 0) {
       estoqueTexto = "❌ Esgotado";
+      estoqueClasse = "esgotado";
     } else if (p.estoque <= 5) {
       estoqueTexto = `🔥 Últimas unidades! (${p.estoque})`;
+      estoqueClasse = "alerta";
     } else {
       estoqueTexto = `Disponível: ${p.estoque}`;
+    }
+
+    // ===== SELECT DE TAMANHOS =====
+    let selectHTML = "";
+    if (p.variacoes && p.variacoes.tamanhos) {
+      selectHTML = `
+        <select class="variacao">
+          <option value="">Selecione o tamanho</option>
+          ${p.variacoes.tamanhos
+            .map(t => `<option value="${t}">${t}</option>`)
+            .join("")}
+        </select>
+      `;
     }
 
     card.innerHTML = `
@@ -61,25 +74,37 @@ function criarCategoria(titulo, produtos) {
       <div class="info">
         <h4>${p.nome}</h4>
         <div class="price">${p.preco}</div>
-        <div class="stock">${estoqueTexto}</div>
+
+        ${selectHTML}
+
+        <div class="stock ${estoqueClasse}">${estoqueTexto}</div>
+
+        <button class="buy-btn" ${p.estoque === 0 ? "disabled" : ""}>
+          ${p.estoque === 0 ? "Indisponível" : "Comprar"}
+        </button>
       </div>
     `;
 
-    // CLIQUE NO PRODUTO
-    card.addEventListener("click", () => {
+    // ===== BOTÃO COMPRAR =====
+    const btnComprar = card.querySelector(".buy-btn");
+
+    btnComprar.addEventListener("click", (e) => {
+      e.stopPropagation();
+
       if (p.estoque === 0) {
         alert("Produto esgotado 😞");
         return;
       }
 
       let tamanhoEscolhido = "";
+      const select = card.querySelector(".variacao");
 
-      if (p.variacoes && p.variacoes.tamanhos) {
-        tamanhoEscolhido = prompt(
-          `Escolha o tamanho:\n${p.variacoes.tamanhos.join(" | ")}`
-        );
-
-        if (!tamanhoEscolhido) return;
+      if (select) {
+        if (select.value === "") {
+          alert("Selecione o tamanho antes de continuar 🙂");
+          return;
+        }
+        tamanhoEscolhido = select.value;
       }
 
       contato(p.nome, tamanhoEscolhido);
@@ -94,10 +119,7 @@ function criarCategoria(titulo, produtos) {
 // ================= WHATSAPP =================
 function contato(produto, tamanho = "") {
   let msg = `Oi! Tenho interesse no produto: ${produto}`;
-
-  if (tamanho) {
-    msg += ` | Tamanho: ${tamanho}`;
-  }
+  if (tamanho) msg += ` | Tamanho: ${tamanho}`;
 
   window.open(
     `https://wa.me/5555999712009?text=${encodeURIComponent(msg)}`,
