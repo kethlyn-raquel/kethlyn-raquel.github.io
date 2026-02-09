@@ -1,4 +1,11 @@
 const lista = document.getElementById("lista-produtos");
+const btn = document.getElementById("btn-ver-produtos");
+const produtosSecao = document.getElementById("produtos");
+
+btn.onclick = () => {
+  produtosSecao.style.display = "block";
+  produtosSecao.scrollIntoView({ behavior: "smooth" });
+};
 
 const modal = document.createElement("div");
 modal.className = "modal";
@@ -7,20 +14,10 @@ modal.innerHTML = `
     <span class="close">×</span>
     <h3 id="m-nome"></h3>
     <p id="m-preco"></p>
-
-    <div class="select-wrapper">
-      <select id="m-var" class="select-premium"></select>
-    </div>
-
+    <select id="m-var" class="select-premium"></select>
     <button class="buy-btn" id="add">Adicionar</button>
-
     <div id="cart"></div>
-
-    <div class="pix-box">
-      Pix: SUA-CHAVE-PIX
-    </div>
-
-    <button class="buy-btn" id="finalizar">Finalizar WhatsApp</button>
+    <button class="buy-btn" id="finalizar">Finalizar no WhatsApp</button>
   </div>
 `;
 document.body.appendChild(modal);
@@ -67,17 +64,13 @@ function abrir(p) {
 
   const sel = document.getElementById("m-var");
   sel.innerHTML = "";
+
   if (p.variacoes?.tamanhos) {
     p.variacoes.tamanhos.forEach(t => {
-      const o = document.createElement("option");
-      o.value = t;
-      o.innerText = t;
-      sel.appendChild(o);
+      sel.innerHTML += `<option>${t}</option>`;
     });
   } else {
-    const o = document.createElement("option");
-    o.innerText = "Padrão";
-    sel.appendChild(o);
+    sel.innerHTML = `<option>Padrão</option>`;
   }
 }
 
@@ -86,24 +79,18 @@ document.querySelector(".close").onclick = () => modal.style.display = "none";
 document.getElementById("add").onclick = () => {
   carrinho.push({
     nome: atual.nome,
-    variacao: document.getElementById("m-var").value
+    var: document.getElementById("m-var").value
   });
   atualizar();
 };
 
 function atualizar() {
   const cart = document.getElementById("cart");
-  cart.innerHTML = "";
-  carrinho.forEach(p => {
-    cart.innerHTML += `<div>• ${p.nome} (${p.variacao})</div>`;
-  });
+  cart.innerHTML = carrinho.map(i => `• ${i.nome} (${i.var})`).join("<br>");
 }
 
 document.getElementById("finalizar").onclick = () => {
-  let msg = "Pedido:%0A";
-  carrinho.forEach(p => {
-    msg += `- ${p.nome} (${p.variacao})%0A`;
-  });
+  let msg = "Olá! Quero fazer um pedido:%0A";
+  carrinho.forEach(i => msg += `- ${i.nome} (${i.var})%0A`);
   window.open(`https://wa.me/5555999712009?text=${msg}`);
 };
-
