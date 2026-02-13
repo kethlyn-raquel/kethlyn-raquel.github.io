@@ -53,6 +53,14 @@
     }
   ],
 
+      "nome": "Azulejo 21x30",
+      "preco": "R$ 35,00",
+      "imagem": "img/produtos/azulejo-grande.jpg",
+      "estoque": 100,
+      "variacoes": {
+        "tamanhos": ["20x20", "21x30"]
+      }
+    },
   "personalizados": [
     {
       "nome": "Caneca Personalizada",
