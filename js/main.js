@@ -23,17 +23,22 @@ function criar(titulo, produtos) {
   produtos.forEach(p => {
     const c = document.createElement("div");
     c.className = "card";
+
     c.innerHTML = `
-      <img src="${p.imagem}">
+      <img src="${p.imagem}" alt="${p.nome}">
       <div class="info">
         <h4>${p.nome}</h4>
         <div class="price">${p.preco}</div>
+        ${p.descricao ? `<div class="descricao">${p.descricao}</div>` : ""}
         <button class="buy-btn">Comprar</button>
       </div>
     `;
-    c.querySelector("button").onclick = () => {
-      window.open(`https://wa.me/5555999712009?text=Olá! Tenho interesse no produto: ${p.nome}`);
+
+    c.querySelector(".buy-btn").onclick = () => {
+      const mensagem = `Olá! Tenho interesse no produto: ${p.nome} - ${p.preco}`;
+      window.open(`https://wa.me/5555999712009?text=${encodeURIComponent(mensagem)}`);
     };
+
     grid.appendChild(c);
   });
 
