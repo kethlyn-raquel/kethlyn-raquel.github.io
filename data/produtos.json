@@ -53,16 +53,17 @@
     },
     {
       "nome": "Etiqueta Escolar",
-      "preco": "Pacote R$ 15,00",
+      "preco": "R$ 29,90",
       "imagem": "img/produtos/etiqueta.jpg",
-      "estoque": 100
+      "estoque": 100,
+      "descricao": "35/40 unidades + 2 chaveiros"
     }
   ],
 
   "personalizados": [
     {
       "nome": "Caneca Personalizada",
-      "preco": "R$ 35,00",
+      "preco": "R$ 39,90",
       "imagem": "img/produtos/caneca.jpg",
       "estoque": 100
     },
@@ -74,7 +75,7 @@
     },
     {
       "nome": "Chaveiro",
-      "preco": "R$ 3,50",
+      "preco": "R$ 4,00",
       "imagem": "img/produtos/chaveiro.jpg",
       "estoque": 100
     },
