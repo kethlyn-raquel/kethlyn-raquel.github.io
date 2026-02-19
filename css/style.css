@@ -163,3 +163,13 @@ footer {
   text-align: center;
 }
 
+/* DESCRIÇÃO DO PRODUTO */
+.descricao {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+
