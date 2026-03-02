@@ -1,18 +1,13 @@
-const btn = document.getElementById("btn-ver-produtos");
-const conteudo = document.getElementById("conteudo");
 const lista = document.getElementById("lista-produtos");
 
-btn.onclick = () => {
-  document.getElementById("hero").style.display = "none";
-  conteudo.style.display = "block";
-};
-
+// Carregar Produtos
 fetch("data/produtos.json")
   .then(r => r.json())
   .then(d => {
-    criar("📄 Papelaria", d.papelaria);
-    criar("🎁 Personalizados", d.personalizados);
-    criar("🎉 Eventos", d.eventos);
+    // Organiza as seções com ícones e títulos profissionais
+    criar("Papelaria Profissional", d.papelaria);
+    criar("Itens Personalizados", d.personalizados);
+    criar("Materiais para Eventos", d.eventos);
   });
 
 function criar(titulo, produtos) {
@@ -29,13 +24,13 @@ function criar(titulo, produtos) {
       <div class="info">
         <h4>${p.nome}</h4>
         <div class="price">${p.preco}</div>
-        ${p.descricao ? `<div class="descricao">${p.descricao}</div>` : ""}
-        <button class="buy-btn">Comprar</button>
+        <p class="descricao">${p.descricao || 'Personalize com sua arte ou fotos exclusivas.'}</p>
+        <button class="buy-btn">Pedir Orçamento</button>
       </div>
     `;
 
     c.querySelector(".buy-btn").onclick = () => {
-      const mensagem = `Olá! Tenho interesse no produto: ${p.nome} - ${p.preco}`;
+      const mensagem = `Olá Ketty! Gostaria de um orçamento para: ${p.nome} (${p.preco})`;
       window.open(`https://wa.me/5555999712009?text=${encodeURIComponent(mensagem)}`);
     };
 
