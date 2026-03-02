@@ -68,6 +68,13 @@
       "estoque": 100
     },
     {
+  "nome": "Álbum de Fotos + 18 Fotos",
+  "preco": "R$ 89,00",
+  "imagem": "img/produtos/album.jpg",
+  "estoque": 100,
+  "descricao": "Álbum com 30 folhas acompanhado de 18 fotos reveladas."
+},
+    {
       "nome": "Caneca de Chopp Personalizada",
       "preco": "R$ 4,50 por unidade",
       "imagem": "img/produtos/chopp.jpg",
