@@ -93,7 +93,8 @@
     {
       "nome": "Buquê de Borboleta com LED",
       "preco": "R$ 80,00",
-      "imagem": "img/produtos/buque-led.jpg"
+      "imagem": "img/produtos/buque-led.jpg",
+      "descricao": "Versão clássica sem LED por apenas R$ 70,00."
     },
     {
       "nome": "Banner de 15 Anos",
