@@ -3,133 +3,101 @@
     {
       "nome": "Banner",
       "preco": "A partir de R$ 80,00",
-      "imagem": "img/produtos/banner.jpg",
-      "estoque": 100,
-      "variacoes": {
-        "tamanhos": ["60x90", "80x120", "100x150", "120x200"]
-      }
+      "imagem": "img/produtos/banner.jpg"
     },
     {
       "nome": "Foto Polaroid",
       "preco": "R$ 2,50",
-      "imagem": "img/produtos/polaroid.jpg",
-      "estoque": 100,
-      "variacoes": {
-        "tamanhos": ["6x7", "8x9"]
-      }
+      "imagem": "img/produtos/polaroid.jpg"
+    },
+    {
+      "nome": "Fotos Plastificadas",
+      "preco": "A partir de R$ 3,00",
+      "imagem": "img/produtos/foto-plastificada.jpg",
+      "descricao": "Fotos com acabamento plastificado para maior durabilidade."
     },
     {
       "nome": "Azulejo Personalizado",
       "preco": "R$ 30,00",
-      "imagem": "img/produtos/azulejo.jpg",
-      "estoque": 100,
-      "variacoes": {
-        "tamanhos": ["20x20", "21x30"]
-      }
-    },
-    {
-      "nome": "Azulejo 21x30",
-      "preco": "R$ 35,00",
-      "imagem": "img/produtos/azulejo-grande.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/azulejo.jpg"
     },
     {
       "nome": "Cartão de Visita",
       "preco": "1000 unidades por R$ 150,00",
-      "imagem": "img/produtos/cartao.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/cartao.jpg"
     },
     {
       "nome": "Wind banner",
       "preco": "R$ 290,00",
-      "imagem": "img/produtos/widerbanner.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/widerbanner.jpg"
     },
     {
       "nome": "Mini Calendário",
       "preco": "R$ 3,50",
-      "imagem": "img/produtos/calendario.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/calendario.jpg"
     },
     {
       "nome": "Etiqueta Escolar",
       "preco": "R$ 29,90",
-      "imagem": "img/produtos/etiqueta.jpg",
-      "estoque": 100,
-      "descricao": "35/40 unidades + 2 chaveiros"
+      "imagem": "img/produtos/etiqueta.jpg"
     }
   ],
-
   "personalizados": [
     {
       "nome": "Caneca Personalizada",
       "preco": "R$ 39,90",
-      "imagem": "img/produtos/caneca.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/caneca.jpg"
     },
     {
-  "nome": "Álbum de Fotos + 18 Fotos",
-  "preco": "R$ 89,00",
-  "imagem": "img/produtos/album.jpg",
-  "estoque": 100,
-  "descricao": "Álbum com 30 folhas acompanhado de 18 fotos reveladas."
-},
-    {
-      "nome": "Caneca de Chopp Personalizada",
-      "preco": "R$ 4,50 por unidade",
-      "imagem": "img/produtos/chopp.jpg",
-      "estoque": 100
+      "nome": "Álbum de Fotos + 18 Fotos",
+      "preco": "R$ 89,00",
+      "imagem": "img/produtos/album.jpg"
     },
     {
-      "nome": "Chaveiro",
-      "preco": "R$ 4,00",
-      "imagem": "img/produtos/chaveiro.jpg",
-      "estoque": 100
+      "nome": "Kit Chaveiro",
+      "preco": "R$ 9,90",
+      "imagem": "img/produtos/kit-chaveiro.jpg"
     },
     {
-      "nome": "Caixinha Personalizada",
+      "nome": "Caixinhas Personalizadas",
+      "preco": "R$ 6,00",
+      "imagem": "img/produtos/caixinhas-personalizadas.jpg"
+    },
+    {
+      "nome": "Caixa Personalizada Grande",
       "preco": "R$ 25,00",
-      "imagem": "img/produtos/caixinha.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/caixa-personalizada.jpg"
     },
     {
-      "nome": "Caixa Cone Pirâmide",
+      "nome": "Chaveiro Individual",
       "preco": "R$ 4,00",
-      "imagem": "img/produtos/caixa-cone-piramide.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/chaveiro.jpg"
     },
     {
-      "nome": "Topo de Bolo Personalizado",
+      "nome": "Topo de Bolo",
       "preco": "R$ 15,00",
-      "imagem": "img/produtos/topo-bolo.jpg",
-      "estoque": 100
-    },
-    {
-      "nome": "Quadro Personalizado",
-      "preco": "R$ 29,90",
-      "imagem": "img/produtos/quadro-personalizado.jpg",
-      "estoque": 100
+      "imagem": "img/produtos/topo-bolo.jpg"
     }
   ],
-
   "eventos": [
     {
-      "nome": "Banner de 15 Anos",
-      "preco": "R$ 150,00",
-      "imagem": "img/produtos/15anos.jpg",
-      "estoque": 100
+      "nome": "Lembrancinhas Dia das Mães",
+      "preco": "R$ 2,50",
+      "imagem": "img/produtos/dia-das-maes.jpg"
+    },
+    {
+      "nome": "Centro de Mesa Plastificado",
+      "preco": "R$ 7,00",
+      "imagem": "img/produtos/centro-de-mesa.jpg"
     },
     {
       "nome": "Buquê de Borboleta com LED",
       "preco": "R$ 80,00",
-      "imagem": "img/produtos/buque-led.jpg",
-      "estoque": 2
+      "imagem": "img/produtos/buque-led.jpg"
     },
     {
-      "nome": "Buquê de Borboleta sem LED",
-      "preco": "R$ 70,00",
-      "imagem": "img/produtos/buque.jpg",
-      "estoque": 100
+      "nome": "Banner de 15 Anos",
+      "preco": "R$ 150,00",
+      "imagem": "img/produtos/15anos.jpg"
     }
   ]
-}
