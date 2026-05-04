@@ -113,8 +113,12 @@
           "nome": "Banner de 15 Anos",
           "preco": 150.00,
           "imagem": "img/produtos/15anos.jpg"
-        }
+          }
+
       ]
+
     }
+
   ]
+
 }
