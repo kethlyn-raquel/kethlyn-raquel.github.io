@@ -34,7 +34,7 @@ function criar(titulo, produtos) {
 
     c.querySelector(".buy-btn").onclick = () => {
       const mensagem = `Olá Ketty! Tenho interesse no produto: ${p.nome} (${p.preco})`;
-      window.open(`https://wa.me/5524976063666?text=${encodeURIComponent(mensagem)}`);
+      window.open(`https://wa.me/5555999712009?text=${encodeURIComponent(mensagem)}`);
     };
 
     grid.appendChild(c);
